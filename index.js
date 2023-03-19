@@ -5,9 +5,9 @@ module.exports = function clone(currentObject) {
   if (!isObject && !isArray) {
     return currentObject;
   }
-  const result = isObject ? {} : [];
+  const result = isArray ? [] : {};
   for (let key in currentObject) {
-    const keyObject = isObject ? key : +key;
+    const keyObject = isArray ? +key : key;
     result[keyObject] = clone(currentObject[keyObject]);
   }
   return result;
